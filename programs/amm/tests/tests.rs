@@ -47,7 +47,7 @@ fn setup() -> (
     let program_id = amm::id();
     let payer = Keypair::new();
     let mut svm = LiteSVM::new();
-    let bytes = std::fs::read("../../../target/deploy/amm.so").expect("build the program first: `anchor build` or `cargo build-bpf`");
+    let bytes = std::fs::read("../../target/deploy/amm.so").expect("build the program first: `anchor build` or `cargo build-bpf`");
     svm.add_program(program_id, bytes.as_slice()).unwrap();
     svm.airdrop(&payer.pubkey(), 10_000_000_000).unwrap();
 
